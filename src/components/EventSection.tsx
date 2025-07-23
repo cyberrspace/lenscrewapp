@@ -9,7 +9,7 @@ const EventSection = () => {
         
         <div className='flex flex-col md:flex-row  px-4 sm:px-6 lg:px-8 '>
 
-          <div className="w-full max-w-[820px] min-h-[500.67pxpx] bg-gray-500 p-10">
+        <div className="w-full max-w-[820px] min-h-[500.67pxpx] bg-cover  bg-[url('/Frame-bg.png')] p-10">
             <div>
               <h2 className="w-[245px] h-[51px] text-[34.23px] text-[#FFFFFF] font-semibold leading-[150%] font-[Poppins]">
                 Our Approach
