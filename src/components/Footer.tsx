@@ -10,7 +10,7 @@ const Footer = () => {
         <h2 className="text-white text-center mt-4 text-[16px] sm:text-[18px] md:text-[20px] font-semibold">Subscribe to our newsletter</h2>
         <div className="text-white text-center text-sm sm:text-base">
           <p>Get expert advice for your journey to LensCrew Academy delivered to your</p>
-          <p>inbox each month. It's short, and worthwhile – we promise!</p>
+          <p>LensCrew Academy doesn&rsquo;t just teach — we mentor.</p>
         </div>
 
         <div className="relative w-full mt-4 max-w-[649px]">
