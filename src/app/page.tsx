@@ -5,6 +5,7 @@ import Filmaker from "@/components/Filmaker";
 import Testimonial from "@/components/Testimonial";
 
 
+
 export default function Home() {
 
   return (
@@ -12,8 +13,9 @@ export default function Home() {
     
    <EventSection/>
    <Filmaker/>
-  <Pathway/>
-  <Testimonial/>
+   <Pathway/>
+   <Testimonial/>
+  
    </main>
   );
 

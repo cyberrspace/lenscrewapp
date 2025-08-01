@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 
 const Filmaker = () => {
   const programs = [
@@ -9,13 +10,13 @@ const Filmaker = () => {
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center py-10">
-      <div className="w-full max-w-[1000.15px]">
-        <h1 className="text-2xl font-bold mb-6 text-center">
+    <div className="relative flex flex-col items-center justify-between py-10">
+      <div className="w-full max-w-[1094.15px] ">
+        <h1 className="flex justify-center items-center text-2xl font-bold mb-6 text-center">
           Films and Media Programs
         </h1>
 
-        <div className="space-y-4">
+        <div className="space-y-4 ">
           {programs.map((title, index) => (
             <div
               key={index}
@@ -30,24 +31,26 @@ const Filmaker = () => {
                   {title}
                 </h2>
 
-                {/* Button */}
-                <button className="w-[165px] h-[57px] px-6 py-4 bg-[#DF4F3A] text-white hover:bg-[#c7432f] text-sm sm:text-base flex items-center justify-center">
-                  <span>Enroll Now</span>
-                  <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="w-4 h-4 text-[#DF4F3A]"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 14a.75.75 0 01-.53-.22l-5-5a.75.75 0 111.06-1.06L10 12.19l4.47-4.47a.75.75 0 111.06 1.06l-5 5a.75.75 0 01-.53.22z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                {/* Right-Aligned Button */}
+                <Link href="/enroll">
+                  <button className="w-[165px] h-[57px] px-6 py-4 bg-[#DF4F3A] text-white hover:bg-[#c7432f] text-sm sm:text-base flex items-center">
+                    <span>Enroll Now</span>
+                    <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="w-4 h-4 text-[#DF4F3A]"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 14a.75.75 0 01-.53-.22l-5-5a.75.75 0 111.06-1.06L10 12.19l4.47-4.47a.75.75 0 111.06 1.06l-5 5a.75.75 0 01-.53.22z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </Link>
               </div>
             </div>
           ))}

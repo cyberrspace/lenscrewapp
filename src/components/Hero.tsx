@@ -1,51 +1,57 @@
 import React from 'react';
 
-const Hero = () => {
-  return (
-    <section className="flex flex-col items-center justify-center text-white left-208px w-full h-screen max-w-[1445px] max-h-[962px] opacity-100 mx-auto 
-      sm:max-w-[640px] sm:max-h-[500px] 
-      md:max-w-[768px] md:max-h-[600px] 
-      lg:max-w-[1024px] lg:max-h-[800px] 
-      xl:max-w-[1280px] xl:max-h-[960px] 
-      2xl:max-w-[1445px] 2xl:max-h-[960px] 
-      mt-[150px] pb-16">
+interface HeroProps {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  showButton?: boolean;
+}
 
-      <div>
-        <h2 className="font-poppins font-medium text-center text-[47.53px] leading-116 tracking-normal flex items-center">
-          Unlock your creative potential at
+const Hero: React.FC<HeroProps> = ({
+  title = 'LensCrew Academy',
+  subtitle = 'Unlock your creative potential at',
+  description = `Master the art of filmmaking, acting, and media production with
+  industry-leading professionals. Launch your career in the entertainment 
+  industry today.`,
+  showButton = true,
+}) => {
+  return (
+    <section
+      className="w-full h-auto min-h-[640px] sm:min-h-[720px] md:min-h-[800px] 
+      lg:min-h-[880px] xl:min-h-[920px] 2xl:min-h-[962px] 
+      flex flex-col items-center justify-center text-center text-white 
+      px-4 py-8 mx-auto bg-cover bg-center "
+      // style={{ backgroundImage: "url('/Frame-bg.png')" }}
+    >
+      {/* Subheading */}
+      <div className="w-full max-w-[90%] sm:max-w-xl mb-4">
+        <h2 className="font-poppins font-medium leading-snug text-lg sm:text-xl md:text-2xl lg:text-3xl">
+          {subtitle}
         </h2>
       </div>
 
-      <div>
-        <h1 className="font-poppins font-medium text-center text-[96px] leading-116 tracking-normal flex items-center">
-          LensCrew Academy
+      {/* Main Heading */}
+      <div className="w-full max-w-[90%] sm:max-w-4xl mb-6">
+        <h1 className="font-poppins font-bold leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+          {title}
         </h1>
       </div>
 
-      <div className="w-full max-w-[782px] h-auto min-h-[50px] opacity-100 mx-auto 
-        sm:max-w-[340px] sm:min-h-[45px] 
-        md:max-w-[500px] md:min-h-[60px] 
-        lg:max-w-[782px] lg:min-h-[75px] 
-        xl:max-w-[720px] xl:min-h-[90px] 
-        2xl:max-w-[782px] 2xl:min-h-[99px]">
-
-        <h3 className="text-center align-middle font-light font-poppins tracking-[0px] text-[16px] leading-[140%] 
-          sm:text-[18px] sm:leading-[145%] 
-          md:text-[19.5px] md:leading-[147%] 
-          lg:text-[20.5px] lg:leading-[148%] 
-          xl:text-[21.5px] xl:leading-[149%] 
-          2xl:text-[21.86px] 2xl:leading-[150%]">
-          Master the act of film making, acting and media production with<br />
-          industry-leading professionals. Launch your career in the entertainment<br />
-          industry today.
-        </h3>
+      {/* Description */}
+      <div className="w-full max-w-[90%] sm:max-w-[600px] md:max-w-[700px] lg:max-w-[782px] mb-10">
+        <p className="font-poppins font-light text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
+          {description}
+        </p>
       </div>
 
-      <div>
-        <button className="bg-[#DF4F3A] text-white px-[51.33px] py-[11.41px] w-[219.66px] h-[56.81px] mt-[37px] mb-[29px]">
-          Enroll Now
-        </button>
-      </div>
+      {/* Button */}
+      {showButton && (
+        <div>
+          <button className="bg-[#DF4F3A] text-white font-medium px-6 py-3 rounded-md text-sm sm:text-base md:text-lg hover:bg-[#c94330] transition duration-300">
+            Enroll Now
+          </button>
+        </div>
+      )}
     </section>
   );
 };
