@@ -4,48 +4,39 @@ import React from 'react';
 
 const WhyChooseUs = () => {
   return (
-    <div className="flex flex-col sm:flex-row justify-center items-start px-4 sm:px-6 md:px-8 m-w-[1264px]">
+    <div className="flex flex-col lg:flex-row flex-wrap w-full  px-4 mx-auto">
 
-
-      <div className=" w-full max-w-[409px] min-h-[504px] sm:min-h-[520px] md:min-h-[540px] bg-[url('/whychooseus-bg.png')] bg-cover bg-center bg-no-repeat text-white p-6 sm:p-8 mx-auto">
-      
-        <h1 className="max-w-[346px] text-[34.23px] font-semibold leading-[150%] font-[Poppins] text-[#FFFFFF]" >Why Choose <br/>
-          LensCrew Academy</h1>
-        <h3 className="max-w-[203px] text-[15.69px] font-semibold leading-[150%] font-[Poppins] text-[#FFFFFF]">Your Creative Launchpad</h3>
-        <ul className='list-disc list-inside max-w-[285px] text-[15.69px] leading-[150%] font-normal font-[Poppins] text-[#FFFFFF] sm:text-[16px] md:text-[17px] ml-2'>
-          <li className='font-Poppins'>Placement support</li>
+      {/* Info Block */}
+      <div className="flex-1 h-[500px] max-w-[408.5px] bg-[url('/whychooseus-bg.png')] bg-cover bg-center text-white p-6 sm:p-8">
+        <h1 className="text-[30px] font-semibold mb-2">Why Choose LensCrew Academy</h1>
+        <h3 className="text-sm font-semibold mb-4">Your Creative Launchpad</h3>
+        <ul className="list-disc list-inside text-sm space-y-1">
+          <li>Placement support</li>
           <li>Experience industry film making</li>
           <li>Industry Network</li>
         </ul>
       </div>
-      
-      <div className="relative w-full max-w-[408.66px] h-[500px] sm:h-[520px] md:h-[540px] bg-[#98281B] p-6 sm:p-8 mx-auto">
-        <h1 className="max-w-[245px] text-[34.23px] font-semibold leading-[150%] font-[Poppins] text-[#FFFFFF] mb-2 sm:mb-3">Specialization</h1>
-        <ul className="max-w-[338px] leading-[150%] font-[Poppins] text-[#FFFFFF] list-disc list-inside">
-          <li><span className='font-extrabold text-[15.69px]'>Acting:</span>  Method Acting / Commercial Acting </li>
-          <li><span className='font-extrabold text-[15.69px]'>Cinematography:</span> Narrative Films / Advertising</li>
-          <li><span className='font-extrabold text-[15.69px]'>Editing:</span>Feature Films / Social Media Content</li>
-        </ul>
 
+      {/* Specialization */}
+      <div className="flex-1 max-w-[408.5px] h-[500px] bg-[#98281B] text-white p-6 sm:p-8">
+        <h1 className="text-2xl font-semibold mb-3">Specialization</h1>
+        <ul className="list-disc list-inside space-y-2 text-sm">
+          <li><span className="font-extrabold">Acting:</span> Method Acting / Commercial <span className="pl-[20px] block">Acting</span> </li>
+          <li><span className="font-extrabold">Cinematography:</span> Narrative Films / <span className="pl-[20px] block">Advertising</span> </li>
+          <li><span className="font-extrabold">Editing:</span> Feature Films / Social Media <span className="pl-[20px] block"> Content</span></li>
+        </ul>
       </div>
 
-      <div className="relative w-full max-w-[749px] h-[404px] sm:h-[450px] md:h-[499px] mx-auto">
+      {/* Image */}
+      <div className="w-full lg:w-[400.91px] h-[500px] max-w-[400.91px]">
         <img
           src="/blackcamera-bg.png"
-          alt="Black Camera Background"
-          className="w-[749px] h-[540px] object-cover"
+          alt="Black Camera"
+          className="w-full h-full max-h-[500px] object-cover"
         />
       </div>
+    </div>
 
-    
-
-
-
-
-      </div>
-
-     
-   
 
     
   )

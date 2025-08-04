@@ -46,51 +46,54 @@ const Testimonial = () => {
       <div className="flex flex-col items-center text-center">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6">Testimonials</h2>
 
-        {/* Content */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <div className="w-full max-w-[300px] sm:max-w-[250px]">
-            <Image
-              src={image}
-              alt={title}
-              width={300}
-              height={200}
-              className="rounded-md w-full h-auto object-cover"
-            />
-          </div>
+        {/* Two testimonial blocks side-by-side on medium+ screens */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-[1200px]">
+          {[testimonials[currentIndex], testimonials[(currentIndex + 1) % testimonials.length]].map((testimonial, index) => (
+            <div key={index} className="flex flex-col sm:flex-row items-center gap-4 text-left">
+              {/* Image */}
+              <div className="w-full max-w-[300px] sm:max-w-[250px]">
+                <Image
+                  src={testimonial.image}
+                  alt={testimonial.title}
+                  width={300}
+                  height={200}
+                  className="rounded-md w-full h-auto object-cover"
+                />
+              </div>
 
-          <div className="max-w-[600px] text-left space-y-3">
-            <h3 className="text-xl font-semibold">{title}</h3>
-            <p className="text-sm text-gray-700">{text}</p>
-            <p className="text-sm font-medium">
-              <span className="text-black">{name}</span> {role}
-            </p>
-          </div>
+              {/* Text */}
+              <div className="max-w-[440px] space-y-2">
+                <h3 className="text-xl font-semibold">{testimonial.title}</h3>
+                <p className="text-sm text-gray-700">{testimonial.text}</p>
+                <p className="text-sm font-medium">
+                  <span className="text-black">{testimonial.name}</span> {testimonial.role}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Arrows and Circles */}
         <div className="flex items-center justify-center gap-4 mt-8">
-          {/* Left Arrow */}
           <button onClick={goToPrevious} className="text-orange-500 hover:text-orange-600">
             <ChevronLeft size={32} />
           </button>
 
-          {/* Dots */}
           <div className="flex gap-2">
             {testimonials.map((_, index) => (
               <span
                 key={index}
-                className={`w-3 h-3 rounded-full border-2 ${currentIndex === index ? 'bg-orange-500 border-orange-500' : 'border-orange-300'
-                  }`}
+                className={`w-3 h-3 rounded-full border-2 ${currentIndex === index ? 'bg-orange-500 border-orange-500' : 'border-orange-300'}`}
               />
             ))}
           </div>
 
-          {/* Right Arrow */}
           <button onClick={goToNext} className="text-orange-500 hover:text-orange-600">
             <ChevronRight size={32} />
           </button>
         </div>
       </div>
+
     </div>
   );
 };

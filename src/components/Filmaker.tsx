@@ -11,8 +11,8 @@ const Filmaker = () => {
 
   return (
     <div className="relative flex flex-col items-center justify-between py-10">
-      <div className="w-full max-w-[1094.15px] ">
-        <h1 className="flex justify-center items-center text-2xl font-bold mb-6 text-center">
+      <div className="w-full max-w-[1200.15px] ">
+        <h1 className="flex  items-center text-2xl font-bold mb-6">
           Films and Media Programs
         </h1>
 
@@ -33,7 +33,7 @@ const Filmaker = () => {
 
                 {/* Right-Aligned Button */}
                 <Link href="/enroll">
-                  <button className="w-[165px] h-[57px] px-6 py-4 bg-[#DF4F3A] text-white hover:bg-[#c7432f] text-sm sm:text-base flex items-center">
+                  <button className="w-[165px] h-[57px] px-6 py-4 bg-[#DF4F3A] text-white hover:bg-[#c7432f] text-sm sm:text-base flex items-center ">
                     <span>Enroll Now</span>
                     <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-2">
                       <svg

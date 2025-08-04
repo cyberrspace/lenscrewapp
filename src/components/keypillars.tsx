@@ -2,47 +2,28 @@ import React from 'react';
 
 const KeyPillars = () => {
   return (
-    <section className="w-full flex flex-col-reverse md:flex-row items-center justify-center  px-4 md:px-8 m-w-[1264px]">
-
+    <section className="w-full flex flex-col md:flex-row  px-4 mx-auto">
 
       {/* Text Block */}
-      <div className="bg-[#98281B] w-full max-w-[408px] h-auto min-h-[500px]  sm:p-8 flex flex-col justify-start">
-        <h1 className="w-full text-[24px] sm:text-[28px] md:text-[32px] font-semibold leading-[150%] font-Poppins text-[#FFFFFF] mb-4">
-          Key Pillars
-        </h1>
-
-        <ul className="w-full text-[14px] sm:text-[15.5px] leading-[150%] font-[Poppins] text-[#FFFFFF] list-disc list-inside space-y-3 break-words">
-          <li>
-            <span className="font-extrabold">
-              Industry-Aligned Curriculum –
-            </span>{' '}
-            Designed by filmmakers, for filmmakers.
-          </li>
-          <li>
-            <span className="font-extrabold">
-              Mentorship from Pros –
-            </span>{' '}
-            1:1 feedback from working directors, DOPs, and editors.
-          </li>
-          <li>
-            <span className="font-extrabold">
-              Real-World Projects –
-            </span>{' '}
-            Feature Films / Social Media Content.
-          </li>
+      <div className="flex-1 bg-[#98281B] text-white p-6 sm:p-8 max-w-[408.5px]">
+        <h1 className="text-2xl font-semibold mb-4">Key Pillars</h1>
+        <ul className="list-disc list-inside space-y-3 text-sm">
+          <li><span className="font-extrabold">Industry-Aligned Curriculum –</span> Designed by <span className="pl-[20px] block">filmmakers, for filmmakers.</span></li>
+          <li><span className="font-extrabold">Mentorship from Pros –</span> 1:1 feedback from<span className="pl-[20px] block">working directors, DOPs, and editors.</span>  </li>
+          <li><span className="font-extrabold">Real-World Projects –</span> Feature Films / Social <span className="pl-[20px] block">Media Content.</span> </li>
         </ul>
       </div>
 
       {/* Image Block */}
-      <div className="w-full max-w-[847px] h-[200px] sm:h-[360px] md:h-[420px] lg:h-[470px] xl:h-[500px] 2xl:h-[506.67px] mx-auto">
+      <div className="flex-1 lg:w-[811px] h-[500px] max-w-[811px]">
         <img
           src="/pillars-bg.png"
-          alt="Black Camera Background"
-          className="w-full h-full object-cover"
+          alt="Pillars Image"
+          className="w-full h-full max-h-[500px] object-cover"
         />
       </div>
-
     </section>
+
   );
 };
 

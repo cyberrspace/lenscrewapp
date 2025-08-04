@@ -42,7 +42,7 @@ export default function EnrollPage() {
               />
             </Link>
 
-            <div className="space-y-1">
+            <div className="space-y-2">
               <h1 className="font-poppins font-medium text-[32px] sm:text-[40px] md:text-[44px] leading-[100%]">
                 Enrolment Form
               </h1>
