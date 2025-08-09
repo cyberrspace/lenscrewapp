@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -7,93 +7,139 @@ const testimonials = [
   {
     image: '/cimenaphoto-bg.png',
     title: 'Cinematography Graduates',
-    text: 'Landed my first Bollywood film within 6 months! The DOP mentorship program gave me real on-set confidence.',
+    text: (
+      <>
+        Landed my first Bollywood film within 6 months! <br />
+        The DOP mentorship program gave me real on-set confidence.
+      </>
+    ),
     name: 'Damian Otedola,',
     role: 'Assistant Camera',
   },
   {
     image: '/cimenablack-bg.png',
     title: 'Video Editing Graduate',
-    text: 'From editing class projects to cutting ads for Amazon – the hands-on training made all the difference.',
+    text: (
+      <>
+        From editing class projects to cutting ads for Amazon – <br />
+        the hands-on training made all the difference.
+      </>
+    ),
     name: 'Paul McKenzie,',
     role: 'Video Editor',
   },
   {
     image: '/cimenatech-bg.png',
     title: 'Sound Design Graduate',
-    text: 'Mixing and mastering became second nature. The course got me freelance-ready!',
+    text: (
+      <>
+        Mixing and mastering became second nature. <br />
+        The course got me freelance-ready!
+      </>
+    ),
     name: 'Aisha Bello,',
     role: 'Sound Editor',
   },
-  
 ];
 
 const Testimonial = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+
+    const speed = 0.5;
+    let animationFrameId: number;
+
+    const scroll = () => {
+      container.scrollLeft += speed;
+
+      // Reset to start if at the end of scroll
+      if (container.scrollLeft >= container.scrollWidth / 2) {
+        container.scrollLeft = 0;
+      }
+
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, []);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft -= 400;
+    }
   };
 
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += 400;
+    }
   };
-
-  const { image, title, text, name, role } = testimonials[currentIndex];
 
   return (
-    <div className="w-full max-w-[1264px] mx-auto mt-10 px-4 bg-white py-10 rounded-md shadow">
+    <div className="w-full max-w-[1264px] mx-auto mt-10 px-4 bg-white py-10 rounded-md shadow relative overflow-hidden">
       <div className="flex flex-col items-center text-center">
         <h2 className="text-2xl sm:text-3xl font-bold mb-6">Testimonials</h2>
 
-        {/* Two testimonial blocks side-by-side on medium+ screens */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-[1200px]">
-          {[testimonials[currentIndex], testimonials[(currentIndex + 1) % testimonials.length]].map((testimonial, index) => (
-            <div key={index} className="flex flex-col sm:flex-row items-center gap-4 text-left">
-              {/* Image */}
-              <div className="w-full max-w-[300px] sm:max-w-[250px]">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.title}
-                  width={300}
-                  height={200}
-                  className="rounded-md w-full h-auto object-cover"
-                />
-              </div>
-
-              {/* Text */}
-              <div className="max-w-[440px] space-y-2">
-                <h3 className="text-xl font-semibold">{testimonial.title}</h3>
-                <p className="text-sm text-gray-700">{testimonial.text}</p>
-                <p className="text-sm font-medium">
-                  <span className="text-black">{testimonial.name}</span> {testimonial.role}
-                </p>
-              </div>
-            </div>
-          ))}
+        {/* Arrows */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10">
+          <button
+            onClick={scrollLeft}
+            className="bg-white shadow rounded-full p-2 text-orange-500 hover:text-orange-600"
+          >
+            <ChevronLeft size={28} />
+          </button>
+        </div>
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10">
+          <button
+            onClick={scrollRight}
+            className="bg-white shadow rounded-full p-2 text-orange-500 hover:text-orange-600"
+          >
+            <ChevronRight size={28} />
+          </button>
         </div>
 
-        {/* Arrows and Circles */}
-        <div className="flex items-center justify-center gap-4 mt-8">
-          <button onClick={goToPrevious} className="text-orange-500 hover:text-orange-600">
-            <ChevronLeft size={32} />
-          </button>
-
-          <div className="flex gap-2">
-            {testimonials.map((_, index) => (
-              <span
+        {/* Scrollable Content */}
+        <div className="relative w-full">
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-scroll scroll-smooth no-scrollbar whitespace-nowrap px-6 py-4"
+          >
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
+              <div
                 key={index}
-                className={`w-3 h-3 rounded-full border-2 ${currentIndex === index ? 'bg-orange-500 border-orange-500' : 'border-orange-300'}`}
-              />
+                className="flex-shrink-0 max-w-[600px] flex items-center gap-4 p-4 text-left border bg-white"
+              >
+                {/* Image */}
+                <div className="flex-shrink-0">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.title}
+                    width={176}
+                    height={213}
+                    className="w-[176px] h-[213px] object-cover"
+                  />
+                </div>
+
+                {/* Text */}
+                <div className="space-y-2 w-[315px] gap-[6px]">
+                  <h3 className="text-lg font-semibold text-[17.24px]">{testimonial.title}</h3>
+                  <div className="text-[8.26px] text-gray-700 font-poppins leading-snug break-words">
+                    {testimonial.text}
+                  </div>
+                  <p className="text-sm font-medium text-[12px] leading-tight">
+                    <span className="text-black">{testimonial.name}</span>{testimonial.role}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
-
-          <button onClick={goToNext} className="text-orange-500 hover:text-orange-600">
-            <ChevronRight size={32} />
-          </button>
         </div>
       </div>
-
     </div>
   );
 };

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 
@@ -38,7 +37,7 @@ const WhyChooseUs = () => {
     </div>
 
 
-    
+
   )
 }
 

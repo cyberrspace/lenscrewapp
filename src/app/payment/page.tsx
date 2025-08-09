@@ -9,12 +9,12 @@ import Image from 'next/image';
 export default function PaymentPage() {
   const router = useRouter();
   const [selectedOption, setSelectedOption] = useState('');
-
+  
   return (
     <main className="relative w-full min-h-screen flex flex-col md:flex-row">
       {/* LEFT SIDE - FORM */}
-      <section className="w-full md:w-1/2 bg-[#111822] text-white px-4 sm:px-6 md:px-10 lg:pl-20 pt-8 pb-8 overflow-hidden">
-        <div className="w-full max-w-xl mx-auto h-full space-y-12 md:space-y-20">
+      <section className="w-full md:w-1/2 bg-[#111822] text-white px-4 sm:px-6 md:px-10 lg:pl-20 pt-4 md:pt-6 flex flex-col justify-start min-h-screen">
+        <div className="w-full max-w-xl mx-auto h-full space-y-10 md:space-y-16">
           {/* Top Bar Overlay */}
           <div className="hidden md:block fixed top-0 left-0 w-1/2 h-[80px] bg-[#111822]/50 backdrop-blur-md z-20" />
 
@@ -22,9 +22,9 @@ export default function PaymentPage() {
           <div className="space-y-3">
             <button
               onClick={() => router.push('/enroll')}
-              className="flex items-center text-white hover:underline text-base sm:text-lg mb-6"
+              className="flex items-center hover:underline text-base  mb-6 font-poppins font-normal text-[13.25px] leading-[100%] tracking-[0%] align-middle text-[#C4C4C4]"
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
+              <ArrowLeft className="w-5 h-5 mr-2"/>
               Back
             </button>
 
@@ -43,7 +43,7 @@ export default function PaymentPage() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium font-poppins leading-tight">
                   Enrolment Form
                 </h1>
-                <div className="w-full max-w-xs h-[2px] bg-[#DF4F3A]" />
+                <div className="w-full max-w-xs h-[2px] bg-[#DF4F3A]"/>
               </div>
 
               <p className="text-sm sm:text-base font-poppins">

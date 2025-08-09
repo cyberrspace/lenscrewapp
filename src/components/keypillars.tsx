@@ -1,5 +1,3 @@
-import React from 'react';
-
 const KeyPillars = () => {
   return (
     <section className="w-full flex flex-col md:flex-row  px-4 mx-auto">

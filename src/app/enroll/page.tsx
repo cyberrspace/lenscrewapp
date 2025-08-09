@@ -16,19 +16,20 @@ export default function EnrollPage() {
   const router = useRouter();
 
   return (
-    <main className="relative w-full min-h-screen flex flex-col md:flex-row">
+    <main className="relative w-full h-screen flex flex-col md:flex-row">
       {/* LEFT SIDE - FORM */}
-      <section className="w-full md:w-1/2 bg-[#111822] text-white px-4 sm:px-6 py-4 overflow-hidden">
-        <div className="w-full max-w-xl mx-auto h-full">
-          {/* Top Bar */}
-          <div className="hidden md:block fixed top-0 left-0 w-1/2 h-[80px] bg-[#111822]/50 backdrop-blur-md z-20" />
+      <section className="w-full md:w-1/2 h-full bg-[#111822] text-white overflow-y-auto no-scrollbar px-4 sm:px-6 pt-4 pb-10 z-10">
+        <div className="w-full max-w-xl mx-auto pt-8">
+          {/* Fixed Top Bar */}
+          <div className="hidden md:block fixed top-0 left-0 w-1/2 h-[80px] bg-[#111822]/50  " />
 
-          <div className="mb-16 space-y-4 pt-20 md:pt-24">
+          {/* Header */}
+          <div className="mb-16 space-y-4">
             <button
               onClick={() => router.push('/courses')}
-              className="flex items-center text-white hover:underline font-poppins font-normal text-[18px] sm:text-[20px] mb-12"
+              className="flex items-center text-white hover:underline font-poppins font-normal text-[13.25px] sm:text-[13.25px] mb-12"
             >
-              <ArrowLeft className="w-5 h-5 mr-2" />
+              <ArrowLeft className="w-5 h-5 mr-2 " />
               Back
             </button>
 
@@ -46,7 +47,7 @@ export default function EnrollPage() {
               <h1 className="font-poppins font-medium text-[32px] sm:text-[40px] md:text-[44px] leading-[100%]">
                 Enrolment Form
               </h1>
-              <div className="w-[200px] sm:w-[361px] h-[2px] bg-[#DF4F3A]" />
+              <div className="w-[200px] sm:w-[361px] h-[2px] bg-[#DF4F3A]"/>
             </div>
 
             <p className="font-poppins text-sm sm:text-base">
@@ -54,7 +55,8 @@ export default function EnrollPage() {
             </p>
           </div>
 
-          <form className="space-y-6 pb-12">
+          {/* Form */}
+          <form className="space-y-6 pb-32">
             {['Full Name', 'Date of Birth', 'Gender', 'Email', 'Phone Number'].map((label, i) => (
               <div key={i}>
                 <label className="block mb-1 font-medium">{label}</label>
@@ -65,7 +67,7 @@ export default function EnrollPage() {
                   className="w-full h-[60px] sm:h-[70px] md:h-[81px] px-4 bg-[#4D5259] text-white placeholder:text-white border border-gray-300 focus:outline-none"
                 />
                 {['Gender', 'Phone Number'].includes(label) && (
-                  <div className="w-[200px] border border-white mt-1" />
+                  <div className="w-[200px] border border-white mt-1"/>
                 )}
               </div>
             ))}
@@ -127,16 +129,18 @@ export default function EnrollPage() {
         }}
       />
 
-      {/* RIGHT SIDE - SCROLLABLE ON HOVER IMAGE */}
-      <div className="w-full md:w-1/2 relative group overflow-hidden h-[300px] md:h-auto">
+      {/* RIGHT SIDE - SCROLLABLE IMAGE */}
+      <div className="w-full md:w-1/2 relative h-full group">
+        {/* Background image */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-300"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `linear-gradient(to left, transparent, #111822 100%), url('/formimage-bg.png')`,
           }}
         />
-        <div className="absolute inset-0 overflow-y-hidden group-hover:overflow-y-scroll no-scrollbar">
-          <div className="h-[1500px]" />
+        {/* Scroll Container */}
+        <div className="absolute inset-0 overflow-y-auto no-scrollbar pointer-events-auto">
+          <div className="h-[2500px]" />
         </div>
       </div>
     </main>

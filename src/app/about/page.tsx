@@ -1,50 +1,61 @@
-
 import React from 'react'
 
-export default function PaymentPage(){
+export default function PaymentPage() {
   return (
-    <main className='max-h-full'>
+    <main className="max-h-full">
       <div>
-        <section className="w-full  max-h-[496px] mx-auto px-4 sm:px-[60px] lg:px-[60px] py-[60.24px] gap-[84.34px] flex flex-col md:flex-row  justify-between">
+        {/* Section 1 */}
+        <section className="w-full max-h-auto mx-auto px-4 sm:px-8 lg:px-16 py-10 gap-12 flex flex-col md:flex-row justify-between items-center">
+
           {/* Left - Text */}
           <div className="flex-1 min-w-0 space-y-5 p-2">
-            <div className=' h-[146.05px] space-y-2 pl-5'>
-              <h1 className="font-inter font-semibold text-[60.24px] leading-[60.24px] tracking-[-0.02em] text-[#E9EAF0] whitespace-nowrap truncate">
+            {/* Heading Section */}
+            <div className="space-y-2 px-3 sm:px-5">
+              <h1 className="font-inter font-semibold text-[28px] sm:text-[42px] md:text-[60px] leading-tight tracking-[-0.02em] text-[#E9EAF0]">
                 LensCrew Academy:
               </h1>
 
-              <h2 className='max-w-[580px] h-[48px] font-semibold text-[36.14px]'>The Industry&rsquo;s Best-Kept Secret
+              <h2 className="max-w-full sm:max-w-[580px] font-semibold text-[18px] sm:text-[26px] md:text-[36px] leading-snug">
+                The Industry&rsquo;s Best-Kept Secret
               </h2>
-              <p className=''>Where legendary production expertise meets next-gen creativity</p>
+
+              <p className="text-sm sm:text-base text-[#E9EAF0]/90">
+                Where legendary production expertise meets next-gen creativity
+              </p>
             </div>
 
-            <div className=" w-full max-w-[612px] h-auto sm:h-[191.05px] flex flex-col gap-[15.05px] px-4 sm:px-6">
-               <h2 className="w-[276.96px] h-[31px] text-[24.08px] font-semibold leading-[30.1px] tracking-[-0.01em] text-[#1D2026] font-['Inter'] space-y-5">
+            {/* Legacy Section */}
+            <div className="w-full max-w-full sm:max-w-[612px] flex flex-col gap-4 px-3 sm:px-6">
+              <h2 className="w-full text-[18px] sm:text-[22px] md:text-[24px] font-semibold leading-[1.3] tracking-[-0.01em] text-[#1D2026] font-['Inter']">
                 Our Legacy
               </h2>
 
               <div>
-                <p className='font-normal text-[12.04px] text-[#525252]'>Founded by Award-Winning Visual Producer Kayode Ajayi, whose 35-year career includes:</p>
-                <ul className='list-disc font-normal text-[12.04px] text-[#525252] pl-6'>
+                <p className="font-normal text-xs sm:text-sm text-[#525252]">
+                  Founded by Award-Winning Visual Producer Kayode Ajayi, whose 35-year career includes:
+                </p>
+                <ul className="list-disc font-normal text-xs sm:text-sm text-[#525252] pl-5 sm:pl-6 space-y-1">
                   <li>Producing 20% of TV/streaming ads you see today (MTN, Pepsi, Dangote campaigns)</li>
-                  <li>Producer of Nigeria’s most-watched reality show <span className='font-semibold'>(Gulder Ultimate Search Seasons 1-12)</span></li>
+                  <li>
+                    Producer of Nigeria’s most-watched reality show{" "}
+                    <span className="font-semibold">(Gulder Ultimate Search Seasons 1-12)</span>
+                  </li>
                   <li>Mentoring 3 generations of Africa’s top cinematographers</li>
-               </ul>
+                </ul>
               </div>
 
-              <div className='font-normal text-[12.04px] text-[#525252]'>
-                <p>I’ve seen brilliant talents fail from lack of practical knowledge. At LensCrew, we teach the unspoken rules that make or break careers.</p>
+              <div className="font-normal text-xs sm:text-sm text-[#525252] space-y-1">
+                <p>
+                  I’ve seen brilliant talents fail from lack of practical knowledge. At LensCrew, we teach the
+                  unspoken rules that make or break careers.
+                </p>
                 <p>— Kayode Ajayi, Founder/Executive Producer</p>
               </div>
-              
             </div>
-           
-
-
           </div>
 
           {/* Right - Image */}
-          <div className="w-[506px] h-[376px] shrink-0">
+          <div className="w-full sm:w-[400px] md:w-[506px] aspect-[4/3] shrink-0">
             <img
               src="/headphone.png"
               alt="Headphone"
@@ -53,19 +64,22 @@ export default function PaymentPage(){
           </div>
         </section>
 
-        <section className="w-full max-w-[1445px] min-h-[535px] bg-[url('/generation.png')] bg-cover max-h-screen relative overflow-hidden">
-          <div className="flex items-center w-full h-full absolute left-0 top-1/2 -translate-y-1/2">
+        {/* Section 2 */}
+        <section className="w-full max-w-[1445px] min-h-[400px] sm:min-h-[535px] bg-[url('/generation.png')] bg-cover relative overflow-hidden mt-6">
+          <div className="flex flex-col sm:flex-row items-center w-full h-full absolute inset-0">
 
-            {/* Left colored div — flush to the edge */}
-            <div className="w-[55px] h-[297px] bg-[#DF4F3AF7]"></div>
+            {/* Left colored div */}
+            <div className="hidden sm:block w-[55px] h-full bg-[#DF4F3AF7]"></div>
 
             {/* Center content */}
-            <div className="flex-1 text-[#FFFFFF] w-[583px] px-6 h-[236px]">
-              <div className='w-[583px] pb-2'>
-                <h1 className="font-bold w-[583px] text-[46px]">Join the Next Generation</h1>
-                <p>Explore Courses</p>
+            <div className="flex-1 text-[#FFFFFF] px-6 py-8 sm:py-0 sm:max-w-[583px]">
+              <div className="pb-4">
+                <h1 className="font-bold text-[28px] sm:text-[36px] md:text-[46px] leading-tight">
+                  Join the Next Generation
+                </h1>
+                <p className="text-sm sm:text-base">Explore Courses</p>
               </div>
-              <div className="text-sm space-y-3 ">
+              <div className="text-xs sm:text-sm space-y-2 sm:space-y-3">
                 <p>Studio Visits Welcome</p>
                 <p>80 Sparklight Estate, Ojodu, Lagos</p>
                 <p>+234 812 345 6789</p>
@@ -74,16 +88,10 @@ export default function PaymentPage(){
             </div>
 
             {/* Right colored div */}
-            <div className="w-[644px] h-[297px] bg-[#DF4F3AF7]"></div>
+            <div className="hidden sm:block flex-1 h-full bg-[#DF4F3AF7]"></div>
           </div>
         </section>
-
       </div>
-     
-     
-
     </main>
-    
   )
 }
-

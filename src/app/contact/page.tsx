@@ -1,6 +1,9 @@
 import React from 'react';
 import { Mail } from 'lucide-react';
 import { Send } from 'lucide-react';
+
+
+
 export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#f9f9f9]">

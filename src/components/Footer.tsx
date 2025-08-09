@@ -1,31 +1,80 @@
-import React from 'react'
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    emailjs
+      .send(
+        "service_9yher8u", 
+        "template_6r53fk8", 
+        { user_email: email },
+        "q8HD3p5J-GfkDUgoa" 
+      )
+      .then(
+        () => {
+          alert("✅ Subscription successful!");
+          setEmail("");
+          setLoading(false);
+        },
+        (error) => {
+          alert("❌ Failed to send email. Please try again.");
+          console.error(error);
+          setLoading(false);
+        }
+      );
+  };
+
   return (
-    <footer className="w-full bg-[#111822] px-6 py-12 sm:px-12 sm:py-16 md:px-20 md:py-20 lg:px-24 lg:py-24 space-y-8 
-      sm:max-w-[822px] sm:max-h-[308px] md:max-w-[1445px] md:max-h-[617px] mx-auto">
+    <footer className="w-full bg-[#111822] px-4 py-10 sm:px-8 sm:py-14 md:px-16 md:py-20 lg:px-24 lg:py-24 space-y-10 mx-auto">
 
       {/* Newsletter Section */}
-      <div className="flex flex-col items-center justify-center w-full max-w-[661.83px] min-h-[213.83px] px-4 mx-auto space-y-4">
-        <h2 className="text-white text-center mt-4 text-[16px] sm:text-[18px] md:text-[20px] font-semibold">Subscribe to our newsletter</h2>
-        <div className="text-white text-center text-sm sm:text-base">
-          <p>Get expert advice for your journey to LensCrew Academy delivered to your</p>
-          <p>LensCrew Academy doesn&rsquo;t just teach — we mentor.</p>
+      <div className="flex flex-col items-center justify-center w-full max-w-3xl px-4 mx-auto space-y-4 text-center">
+        <h2 className="text-white text-lg sm:text-xl md:text-2xl font-semibold">
+          Subscribe to our newsletter
+        </h2>
+
+        <div className="text-white text-sm sm:text-base leading-relaxed">
+          <p>Get expert advice for your journey to LensCrew Academy delivered to your inbox.</p>
+          <p>LensCrew Academy doesnt just teach — we mentor.</p>
         </div>
 
-        <div className="relative w-full mt-4 max-w-[649px]">
+        {/* Input & Button */}
+        <form
+          onSubmit={sendEmail}
+          className="relative w-full mt-4"
+        >
           <input
-            type="text"
+            type="email"
             placeholder="Email address"
-            className="w-full h-[64px] pl-4 pr-[200px] text-black text-sm"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            className="w-full h-14 pl-4 pr-[140px] text-black text-sm focus:outline-none"
           />
+
+
+
           <button
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#999894] hover:bg-[#999984] text-white
-              w-[190px] h-[43.67px] px-[40px] py-[13.33px] text-[13.33px] leading-[16.67px] font-semibold font-[Poppins]"
+            type="submit"
+            disabled={loading}
+            className="
+            absolute right-0 top-0 h-14
+      bg-[#999894] hover:bg-[#999984] text-white
+      p-4 sm:px-6 md:px-8
+      text-sm sm:text-base font-semibold font-[Poppins] 
+      transition duration-300 
+    "
           >
-            Subscribe Now
+            {loading ? "Sending..." : "Subscribe Now"}
           </button>
-        </div>
+        </form>
+
       </div>
 
       {/* Social Icons */}
@@ -60,7 +109,7 @@ const Footer = () => {
       </div>
 
       {/* Navigation Links */}
-      <div className="flex flex-wrap justify-center items-center mt-6 space-x-4 text-white text-sm sm:text-base">
+      <div className="flex flex-wrap justify-center items-center gap-4 text-white text-sm sm:text-base">
         <a href="">Courses</a>
         <a href="">Instructors</a>
         <a href="">About Us</a>
@@ -68,11 +117,11 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <p className="text-center text-[13.33px] leading-[16.67px] font-poppins font-medium text-white mt-6">
+      <p className="text-center text-xs sm:text-sm md:text-base font-poppins font-medium text-white">
         © 2025 - LensCrew Academy
       </p>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
