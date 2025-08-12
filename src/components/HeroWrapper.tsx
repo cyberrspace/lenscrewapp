@@ -15,7 +15,7 @@ const HeroWrapper = () => {
       showButton: boolean;
       variant: 'home' | 'subpage';
     }
-       > = {
+  > = {
     '/': {
       title: 'LensCrew Academy',
       subtitle: 'Unlock your creative potential at',

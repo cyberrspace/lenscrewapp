@@ -49,23 +49,18 @@ const Testimonial = () => {
     const container = scrollRef.current;
     if (!container) return;
 
-    const speed = 0.5;
-    let animationFrameId: number;
+    const slideInterval = setInterval(() => {
+      // Slide by one card width
+      const cardWidth = container.querySelector('div')?.clientWidth || 400;
+      container.scrollLeft += cardWidth;
 
-    const scroll = () => {
-      container.scrollLeft += speed;
-
-      // Reset to start if at the end of scroll
-      if (container.scrollLeft >= container.scrollWidth / 2) {
+      // Reset to start if near the end
+      if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
         container.scrollLeft = 0;
       }
+    }, 3000); // Slide every 3 seconds
 
-      animationFrameId = requestAnimationFrame(scroll);
-    };
-
-    animationFrameId = requestAnimationFrame(scroll);
-
-    return () => cancelAnimationFrame(animationFrameId);
+    return () => clearInterval(slideInterval);
   }, []);
 
   const scrollLeft = () => {

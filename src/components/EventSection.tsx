@@ -7,7 +7,7 @@ const EventSection = () => {
     <div className="min-h-screen w-full flex items-center justify-center">
       <section className="w-full max-w-[1440px] px-4 sm:px-6 md:px-10 lg:px-14 py-10 mx-auto">
 
-        <div className="flex flex-col md:flex-row ">
+        <div className="flex flex-col md:flex-row">
 
           {/* Our Approach Section */}
           <div className="flex-1 bg-[url('/Frame-bg.png')] bg-cover bg-center p-6 sm:p-10 text-white">

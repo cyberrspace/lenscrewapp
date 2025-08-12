@@ -18,18 +18,22 @@ export default function EnrollPage() {
   return (
     <main className="relative w-full h-screen flex flex-col md:flex-row">
       {/* LEFT SIDE - FORM */}
-      <section className="w-full md:w-1/2 h-full bg-[#111822] text-white overflow-y-auto no-scrollbar px-4 sm:px-6 pt-4 pb-10 z-10">
-        <div className="w-full max-w-xl mx-auto pt-8">
-          {/* Fixed Top Bar */}
-          <div className="hidden md:block fixed top-0 left-0 w-1/2 h-[80px] bg-[#111822]/50  " />
+      <section className="w-full md:w-1/2 h-full bg-[#111822] text-white overflow-y-auto no-scrollbar relative z-10">
 
+        {/* Fixed Top Bar */}
+        <div className="hidden md:block fixed top-0 left-0 w-full md:w-1/2 h-[80px] bg-[#111822] z-20" />
+
+        {/* Fixed Bottom Bar */}
+        <div className="hidden md:block fixed bottom-0 left-0 w-full md:w-1/2 h-[80px] bg-[#111822] z-20" />
+
+        <div className="w-full max-w-xl mx-auto pt-[100px] pb-[100px] px-4 sm:px-6">
           {/* Header */}
           <div className="mb-16 space-y-4">
             <button
               onClick={() => router.push('/courses')}
               className="flex items-center text-white hover:underline font-poppins font-normal text-[13.25px] sm:text-[13.25px] mb-12"
             >
-              <ArrowLeft className="w-5 h-5 mr-2 " />
+              <ArrowLeft className="w-5 h-5 mr-2" />
               Back
             </button>
 
@@ -47,7 +51,7 @@ export default function EnrollPage() {
               <h1 className="font-poppins font-medium text-[32px] sm:text-[40px] md:text-[44px] leading-[100%]">
                 Enrolment Form
               </h1>
-              <div className="w-[200px] sm:w-[361px] h-[2px] bg-[#DF4F3A]"/>
+              <div className="w-[200px] sm:w-[361px] h-[2px] bg-[#DF4F3A]" />
             </div>
 
             <p className="font-poppins text-sm sm:text-base">
@@ -56,7 +60,8 @@ export default function EnrollPage() {
           </div>
 
           {/* Form */}
-          <form className="space-y-6 pb-32">
+          <form className="space-y-6">
+            {/* form fields here */}
             {['Full Name', 'Date of Birth', 'Gender', 'Email', 'Phone Number'].map((label, i) => (
               <div key={i}>
                 <label className="block mb-1 font-medium">{label}</label>
@@ -67,7 +72,7 @@ export default function EnrollPage() {
                   className="w-full h-[60px] sm:h-[70px] md:h-[81px] px-4 bg-[#4D5259] text-white placeholder:text-white border border-gray-300 focus:outline-none"
                 />
                 {['Gender', 'Phone Number'].includes(label) && (
-                  <div className="w-[200px] border border-white mt-1"/>
+                  <div className="w-[200px] border border-white mt-1" />
                 )}
               </div>
             ))}
@@ -117,6 +122,7 @@ export default function EnrollPage() {
         </div>
       </section>
 
+      
       {/* VERTICAL DIVIDER */}
       <div
         className="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-[calc(50%-3px)] -translate-y-1/2 z-20"

@@ -33,7 +33,7 @@ const Filmaker = () => {
 
                 {/* Right-Aligned Button */}
                 <Link href="/enroll">
-                  <button className="w-[165px] h-[57px] px-6 py-4 bg-[#DF4F3A] text-white hover:bg-[#c7432f] text-sm sm:text-base flex items-center ">
+                  <button className="w-[175px] h-[57px] px-6 py-4 bg-[#DF4F3A] text-white hover:bg-[#c7432f] text-sm sm:text-base flex items-center ">
                     <span>Enroll Now</span>
                     <span className="w-6 h-6 rounded-full bg-white flex items-center justify-center ml-2">
                       <svg

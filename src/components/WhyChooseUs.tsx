@@ -16,7 +16,7 @@ const WhyChooseUs = () => {
       </div>
 
       {/* Specialization */}
-      <div className="flex-1 h-[500px] bg-[#98281B] text-white p-6 sm:p-8">
+      <div className="w-[350px] flex-shrink-0 h-[500px] bg-[#98281B] text-white p-6 sm:p-8">
         <h1 className="text-2xl font-semibold mb-3">Specialization</h1>
         <ul className="list-disc list-inside space-y-2 text-sm">
           <li>
@@ -35,7 +35,7 @@ const WhyChooseUs = () => {
       </div>
 
       {/* Image */}
-      <div className="flex-1 h-[500px]">
+      <div className="w-[350px] flex-shrink-0 h-[500px]">
         <img
           src="/blackcamera-bg.png"
           alt="Black Camera"
