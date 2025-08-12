@@ -4,7 +4,7 @@ const KeyPillars = () => {
   return (
     <section className="flex flex-col lg:flex-row w-full max-w-[1440px] mx-auto">
 
-      {/* Text Block (same width as WhyChooseUs info block) */}
+      {/* Text Block */}
       <div className="flex-1 bg-[#98281B] text-white p-6 sm:p-8">
         <h1 className="text-2xl font-semibold mb-4">Key Pillars</h1>
         <ul className="list-disc list-inside space-y-3 text-sm">
@@ -23,8 +23,8 @@ const KeyPillars = () => {
         </ul>
       </div>
 
-      {/* Image Block (same width as specialization + image in WhyChooseUs) */}
-      <div className="w-[700px] flex-shrink-0 h-[300px] sm:h-[400px] md:h-[500px]">
+      {/* Image Block */}
+      <div className="w-full lg:w-[700px] flex-shrink-0 h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px]">
         <img
           src="/pillars-bg.png"
           alt="Pillars Image"

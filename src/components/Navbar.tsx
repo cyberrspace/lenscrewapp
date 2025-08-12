@@ -21,7 +21,8 @@ const Navbar = () => {
       <nav className="w-full max-w-[95%] sm:max-w-[90%] lg:max-w-[1363px] mx-auto flex items-center justify-between px-3 sm:px-6 lg:px-[41px] py-4 sm:py-6 lg:py-[57px]">
 
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
+        {/* Logo */}
+        <Link href="/" className="flex-shrink-0" onClick={() => setMobileOpen(false)}>
           <Image
             src="/Vector-bg.png"
             alt="LensCrew logo"
@@ -30,6 +31,7 @@ const Navbar = () => {
             className="w-[28px] sm:w-[35px] lg:w-[41px] h-auto"
           />
         </Link>
+
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center justify-between flex-1 max-w-[644px] text-white">
@@ -63,7 +65,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <div
-        className={`md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 transform transition-transform duration-300 ease-in-out ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
+        className={`md:hidden fixed top-0 left-0 w-full h-full bg-black bg-opacity-90 transform z-50 transition-transform duration-300 ease-in-out ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         <div className="flex justify-between items-center px-6 py-4">
           {/* Mobile Logo */}

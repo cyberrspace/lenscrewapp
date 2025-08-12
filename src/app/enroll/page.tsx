@@ -20,10 +20,10 @@ export default function EnrollPage() {
       {/* LEFT SIDE - FORM */}
       <section className="w-full md:w-1/2 h-full bg-[#111822] text-white overflow-y-auto no-scrollbar relative z-10">
 
-        {/* Fixed Top Bar */}
+        {/* Top Bar */}
         <div className="hidden md:block fixed top-0 left-0 w-full md:w-1/2 h-[80px] bg-[#111822] z-20" />
 
-        {/* Fixed Bottom Bar */}
+        {/* Bottom Bar */}
         <div className="hidden md:block fixed bottom-0 left-0 w-full md:w-1/2 h-[80px] bg-[#111822] z-20" />
 
         <div className="w-full max-w-xl mx-auto pt-[100px] pb-[100px] px-4 sm:px-6">
